@@ -1,0 +1,29 @@
+add-migration createidentityschema -Context AccountContext
+
+// final
+Update-Database -Context MarketContext
+Add-Migration InitAccountUser -Context AccountContext
+Update-Database -Context AccountContext
+
+
+
+
+
+
+Select * from aspnetusers;
+
+insert into AspNetUserClaims values ('41f0f0fa-737f-41af-b611-f61bd26844e5','Position', 'Admin');
+insert into AspNetUserClaims values ('825be42a-3648-4c4a-8d71-41acad958241','Position', 'Cashier');
+
+Select * from AspNetUserClaims;
+
+
+
+7:03
+
+Add-Migration InitAccountUser -Context AccountContext
+
+
+https://www.youtube.com/watch?v=4nXB_GfYIko - final video
+ 
+

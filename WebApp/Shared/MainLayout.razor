@@ -1,0 +1,31 @@
+﻿@inherits LayoutComponentBase
+
+<PageTitle>Personal Collection Management System</PageTitle>
+
+<header class="site-header sticky-top py-1 navbar-dark bg-danger">
+    <nav class="container d-flex flex-column flex-md-row justify-content-between">
+        <NavLink class="py-2 d-none d-md-inline-block text-black" href="" Match="NavLinkMatch.All">
+            <span class="oi oi-home" aria-hidden="true"></span> Home
+        </NavLink>
+        <NavLink class="py-2 d-none d-md-inline-block text-black" href="customer_console">
+            <span class="oi oi-plus" aria-hidden="true"></span> Sell
+        </NavLink>
+        <NavLink class="py-2 d-none d-md-inline-block text-black" href="categories">
+            <span class="oi oi-plus" aria-hidden="true"></span> Categories
+        </NavLink>
+        <NavLink class="py-2 d-none d-md-inline-block text-black" href="products">
+            <span class="oi oi-plus" aria-hidden="true"></span> Products
+        </NavLink>
+        <NavLink class="py-2 d-none d-md-inline-block text-black" href="transactions">
+            <span class="oi oi-plus" aria-hidden="true"></span> Reports
+        </NavLink>
+
+        <LoginDisplay></LoginDisplay>
+    </nav>
+</header>
+
+<main class="content px-4">
+    @Body
+</main>
+
+
