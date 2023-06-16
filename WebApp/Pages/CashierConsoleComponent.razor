@@ -1,4 +1,5 @@
 ﻿@page "/customer_console"
+@using ASP.NETCoreIdentity.Areas.Identity.Data;
 @attribute [Authorize(Policy = "CashierOnly")]
 
 @if (!string.IsNullOrWhiteSpace(cashierName))
@@ -46,6 +47,7 @@
     {
         authSate = await _authState;
         cashierName = authSate.User.Identity.Name;
+        //cashierName = AccountUser.UserName;
     }
 
     protected override void OnInitialized()
