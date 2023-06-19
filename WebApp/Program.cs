@@ -11,6 +11,7 @@ using UseCases.UseCaseInterfaces;
 using WebApp.Data;
 using Microsoft.AspNetCore.Identity;
 using System.Configuration;
+using ASP.NETCoreIdentity.Areas.Identity.Data;
 
 namespace WebApp
 {
