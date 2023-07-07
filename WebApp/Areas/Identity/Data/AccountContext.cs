@@ -31,5 +31,9 @@ public class AccountUserEntityConfiguration : IEntityTypeConfiguration<AccountUs
         builder.Property(u => u.FirstName).HasMaxLength(255);
         builder.Property(u => u.MiddleName).HasMaxLength(255);
         builder.Property(u => u.LastName).HasMaxLength(255);
+        builder.Property(u => u.MobileNo).HasMaxLength(255);
+        builder.Property(u => u.Address).HasMaxLength(255);
+        builder.Property(u => u.Province).HasMaxLength(255);
+        builder.Property(u => u.CityOrMunicipality).HasMaxLength(255);
     }
 }

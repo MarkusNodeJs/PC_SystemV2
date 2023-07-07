@@ -86,6 +86,26 @@ namespace WebApp.Areas.Identity.Pages.Account
             [Display(Name = "Lastname")]
             public string LastName { get; set; }
 
+            [Required]
+            [StringLength(255, ErrorMessage = "The last name field have a maximum of 255 characters")]
+            [Display(Name = "MobileNo")]
+            public string MobileNo { get; set; }
+
+            [Required]
+            [StringLength(255, ErrorMessage = "The last name field have a maximum of 255 characters")]
+            [Display(Name = "Address")]
+            public string Address { get; set; }
+
+            [Required]
+            [StringLength(255, ErrorMessage = "The last name field have a maximum of 255 characters")]
+            [Display(Name = "Province")]
+            public string Province { get; set; }
+
+            [Required]
+            [StringLength(255, ErrorMessage = "The last name field have a maximum of 255 characters")]
+            [Display(Name = "CityOrMunicipality")]
+            public string CityOrMunicipality { get; set; }
+
             /// <summary>
             ///     This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
             ///     directly from your code. This API may change or be removed in future releases.
@@ -134,7 +154,12 @@ namespace WebApp.Areas.Identity.Pages.Account
                     Email = Input.Email,
                     FirstName = Input.FirstName,
                     MiddleName = Input.MiddleName,
-                    LastName = Input.LastName
+                    LastName = Input.LastName,
+                    MobileNo = Input.MobileNo,
+                    Address = Input.Address,
+                    Province = Input.Province,
+                    CityOrMunicipality = Input.CityOrMunicipality,
+
                 };
 
                 await _userStore.SetUserNameAsync(user, Input.Email, CancellationToken.None);
