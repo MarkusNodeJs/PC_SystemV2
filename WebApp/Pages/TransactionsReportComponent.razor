@@ -55,8 +55,8 @@
                         <td>@transaction.BeforeQuantity</td>
                         <td>@transaction.SoldQuantity</td>
                         <td>@(transaction.BeforeQuantity - transaction.SoldQuantity)</td>
-                        <td>@(string.Format("{0:c}", transaction.Price))</td>
-                        <td>@(string.Format("{0:c}", transaction.SoldQuantity * transaction.Price))</td>
+                        <td>@(string.Format("\u20B1{0}", transaction.Price))</td>
+                        <td>@(string.Format("\u20B1{0}", transaction.SoldQuantity * transaction.Price))</td>
                     </tr>
                 }
             </tbody>

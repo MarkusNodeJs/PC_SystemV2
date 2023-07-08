@@ -17,7 +17,7 @@ namespace WebApp
 {
     public class Program
     {
-        public static void Main(string[] args)
+        public static async Task Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
 
@@ -40,7 +40,8 @@ namespace WebApp
 
 
             //  this should be my reference on finding that fucking code!
-            builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
+            builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = false) // must be true
+                .AddRoles<IdentityRole>()
                 .AddEntityFrameworkStores<AccountContext>();
 
 
@@ -107,6 +108,45 @@ namespace WebApp
             app.MapRazorPages();
             app.MapBlazorHub();
             app.MapFallbackToPage("/_Host");
+
+
+            using (var scope = app.Services.CreateScope())
+            {
+                var roleManager = scope.ServiceProvider.GetRequiredService<RoleManager<IdentityRole>>();
+
+                var roles = new[] { "Admin", "Cashier" };
+
+                foreach (var role in roles)
+                {
+                    if (!await roleManager.RoleExistsAsync(role))
+                        await roleManager.CreateAsync(new IdentityRole(role));
+                    
+                }
+
+            }
+
+            using (var scope = app.Services.CreateScope())
+            {
+                var userManger = scope.ServiceProvider.GetRequiredService<UserManager<IdentityUser>>();
+
+                string email = "admin@admin.com";
+                string password = "Test09125@";
+
+                if(await userManger.FindByEmailAsync(email) == null)
+                {
+                    var user = new IdentityUser();
+                    user.UserName = email;
+                    user.Email = email;
+                    //user.EmailConfirmed = true;
+
+                    await userManger.CreateAsync(user, password);
+
+                    userManger.AddToRoleAsync(user, "Admin");
+
+                }
+
+            }
+
 
             app.Run();
         }
