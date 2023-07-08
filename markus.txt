@@ -1,14 +1,11 @@
 add-migration createidentityschema -Context AccountContext
-
+----------------------------------------------------------------------------------------------------
 // final
 Update-Database -Context MarketContext
 Add-Migration InitAccountUser -Context AccountContext
 Update-Database -Context AccountContext
 
-
-
-
-
+----------------------------------------------------------------------------------------------------
 
 Select * from aspnetusers;
 
@@ -19,11 +16,7 @@ Select * from AspNetUserClaims;
 
 
 
-7:03
-
-Add-Migration InitAccountUser -Context AccountContext
 
 
-https://www.youtube.com/watch?v=4nXB_GfYIko - final video
  
 
