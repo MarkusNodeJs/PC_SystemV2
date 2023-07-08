@@ -14,6 +14,11 @@ insert into AspNetUserClaims values ('825be42a-3648-4c4a-8d71-41acad958241','Pos
 
 Select * from AspNetUserClaims;
 
+https://www.youtube.com/watch?v=zKyaSbYhOm8 - Identity
+
+
+https://www.youtube.com/watch?v=Y6DCP-yH-9Q
+
 
 
 
