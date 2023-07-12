@@ -41,8 +41,8 @@
                     <th>Quantity Before</th>
                     <th>Quantity Sold</th>
                     <th>Quantity After</th>
-                    <th>Price</th>
-                    <th>Sold Ammount</th>
+                    <th>Unit Price</th>
+                    <th>Sold Amount</th>
                 </tr>
             </thead>
             <tbody>
@@ -71,7 +71,7 @@
                     </td>
                     <td style="text-align:right">
                         <b>
-                            @(string.Format("{0:c}", transactions.Sum(x => x.Price * x.SoldQuantity)))
+                            @(string.Format("\u20B1{0}", transactions.Sum(x => x.Price * x.SoldQuantity)))
                         </b>
                     </td>
                 </tr>

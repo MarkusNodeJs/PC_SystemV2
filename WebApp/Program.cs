@@ -38,7 +38,6 @@ namespace WebApp
 
 
 
-
             //  this should be my reference on finding that fucking code!
             builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = false) // must be true
                 .AddRoles<IdentityRole>()

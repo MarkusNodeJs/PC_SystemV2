@@ -8,6 +8,33 @@
 <h3>Manage Categories</h3>
 <br />
 
+@if (showDeleteConfirmation)
+{
+    <div class="confirmation-dialog">
+        <div class="modal fade show" style="display: block;">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Delete Confirmation</h5>
+                        <button type="button" class="close" @onclick="() => showDeleteConfirmation = false">
+                            <span>&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <p>Are you sure you want to delete the category '@categoryToDelete.Name'?</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" @onclick="EventCallback.Factory.Create(this, async () => await DeleteCategory())">Yes</button>
+                        <button type="button" class="btn btn-secondary" @onclick="() => showDeleteConfirmation = false">No</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal-backdrop fade show"></div>
+    </div>
+}
+
+
 @if (categories != null)
 {
     <table class="table">
@@ -26,7 +53,7 @@
                     <td>@category.Description</td>
                     <td>
                         <button type="button" @onclick="@(() => EditCategory(category))" class="btn btn-link">Edit</button>
-                        <button type="button" @onclick="@(() => DeleteCategory(category.Id))" class="btn btn-link">Delete</button>
+                        <button type="button" @onclick="@(() => ShowDeleteConfirmation(category))" class="btn btn-link">Delete</button>
                     </td>
                 </tr>
             }
@@ -38,6 +65,8 @@
 
 @code {
     private List<Category> categories;
+    private Category categoryToDelete;
+    private bool showDeleteConfirmation;
 
     protected override void OnInitialized()
     {
@@ -55,10 +84,17 @@
         NavigationManager.NavigateTo($"/editcategory/{category.Id}");
     }
 
-    private void DeleteCategory(int categoryId)
+    private async Task DeleteCategory()
     {
-        DeleteCategoryUseCase.Execute(categoryId);
-        LoadCategories();
+        DeleteCategoryUseCase.Execute(categoryToDelete.Id);
+        categories.Remove(categoryToDelete);
+        showDeleteConfirmation = false;
+    }
+
+    private void ShowDeleteConfirmation(Category category)
+    {
+        categoryToDelete = category;
+        showDeleteConfirmation = true;
     }
 
     private void LoadCategories()
