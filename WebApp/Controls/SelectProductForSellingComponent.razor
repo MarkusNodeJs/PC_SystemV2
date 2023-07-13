@@ -18,7 +18,9 @@
         <thead>
             <tr>
                 <th>Product Name</th>
-                <th>Quantity</th>
+                <th>Product Details</th>
+                <th>Product Description</th>
+                <th>Product Quantity</th>
             </tr>
         </thead>
         <tbody>
@@ -27,6 +29,8 @@
                 <tr @onclick="@(() => OnSelectProduct(product))"
             style="@(product.Id == selectedProductId?"background-color:beige; cursor:pointer;":"cursor:pointer;")">
                     <td>@product.Name</td>
+                    <td>@product.Details</td>
+                    <td>@product.Description</td>
                     <td>@product.Quantity</td>
                 </tr>
             }

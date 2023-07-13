@@ -17,13 +17,23 @@
             <input id="name" type="text" readonly value="@productToSell.Name" class="form-control" />
         </div>
         <div class="form-group">
-            <label for="price">Price</label>
+            <label for="price">Unit Price</label>
             <input id="price" type="text" readonly value="@(string.Format("\u20B1{0}", productToSell.Price))" class="form-control" />
         </div>
         <div class="form-group">
             <label for="qty">Quantity</label>
             <InputNumber id="qty" @bind-Value="@productToSell.Quantity" class="form-control" />
         </div>
+
+@*        <div class="form-group">
+            <label for="qty">Product Details</label>
+            <InputNumber id="qty" @bind-Value="@productToSell.Details" class="form-control" />
+        </div>
+
+        <div class="form-group">
+            <label for="qty">Product Description</label>
+            <InputNumber id="qty" @bind-Value="@productToSell.Description" class="form-control" />
+        </div>*@
         <button type="submit" class="btn btn-primary">Buy</button>
     </EditForm>
 }

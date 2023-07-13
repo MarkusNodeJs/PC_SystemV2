@@ -17,12 +17,12 @@ namespace Plugins.DataStore.InMemory
             //Init with default values
             products = new List<Product>()
             {
-                new Product{ Id = 1, CategoryId = 1, Name = "White Shirt", Quantity = 100, Price = 450 },
-                new Product{ Id = 2, CategoryId = 1, Name = "Black Shirt", Quantity = 200, Price = 499 },
-                new Product{ Id = 3, CategoryId = 2, Name = "Lee", Quantity = 300, Price = 999 },
-                new Product{ Id = 4, CategoryId = 2, Name = "Black Pants", Quantity = 400, Price = 349},
-                new Product{ Id = 5, CategoryId = 3, Name = "W Brown", Quantity = 70, Price = 1400 },
-                new Product{ Id = 6, CategoryId = 3, Name = "Nike", Quantity = 160, Price = 3500 }
+                new Product{ Id = 1, CategoryId = 1, Name = "White Shirt", Quantity = 100, Price = 450, Details = "details", Description = "Description" },
+                new Product{ Id = 2, CategoryId = 1, Name = "Black Shirt", Quantity = 200, Price = 499, Details = "details", Description = "Description"},
+                new Product{ Id = 3, CategoryId = 2, Name = "Lee", Quantity = 300, Price = 999, Details = "details", Description = "Description"},
+                new Product{ Id = 4, CategoryId = 2, Name = "Black Pants", Quantity = 400, Price = 349, Details = "details", Description = "Description"},
+                new Product{ Id = 5, CategoryId = 3, Name = "W Brown", Quantity = 70, Price = 1400, Details = "details", Description = "Description"},
+                new Product{ Id = 6, CategoryId = 3, Name = "Nike", Quantity = 160, Price = 3500, Details = "details", Description = "Description"}
             };
         }
         public IEnumerable<Product> GetProducts()
@@ -56,6 +56,8 @@ namespace Plugins.DataStore.InMemory
                 categoryToUpdate.Price = product.Price;
                 categoryToUpdate.Quantity = product.Quantity;
                 categoryToUpdate.CategoryId = product.CategoryId;
+                categoryToUpdate.Details = product.Details;
+                categoryToUpdate.Description = product.Description;
             };
         }
 

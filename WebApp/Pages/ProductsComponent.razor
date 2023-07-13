@@ -19,6 +19,8 @@
                 <th>Product Name</th>
                 <th>Unit Price</th>
                 <th>Quantity</th>
+                <th>Details</th>
+                <th>Description</th>
                 <th></th>
             </tr>
         </thead>
@@ -30,6 +32,8 @@
                     <td>@product.Name</td>
                     <td>@(Math.Round(product.Price.Value, 2))</td>
                     <td>@product.Quantity</td>
+                    <td>@product.Details</td>
+                    <td>@product.Description</td>
                     <td>
                         <button type="button" @onclick="@(() => EditProduct(product))" class="btn btn-link">Edit</button>
                         <button type="button" @onclick="@(() => ShowDeleteConfirmation(product))" class="btn btn-link">Delete</button>

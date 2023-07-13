@@ -55,6 +55,8 @@ namespace Plugins.DataStore.SQL
             productToUpdate.Name = product.Name;
             productToUpdate.Price= product.Price;
             productToUpdate.Quantity= product.Quantity;
+            productToUpdate.Details = product.Details;
+            productToUpdate.Description = product.Description;
 
             context.SaveChanges();
         }

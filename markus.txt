@@ -1,9 +1,12 @@
 add-migration createidentityschema -Context AccountContext
 ----------------------------------------------------------------------------------------------------
 // final
-Update-Database -Context MarketContext
-Add-Migration InitAccountUser -Context AccountContext
-Update-Database -Context AccountContext
+> Add-Migration InitialCreate -StartupProject PersonalCollectionManagementSystem -Project Plugins.DataStore.SQL -Context YourDbContext
+> Update-Database -Context MarketContext
+> Add-Migration InitAccountUser -Context AccountContext
+> Update-Database -Context AccountContext
+
+
 
 ----------------------------------------------------------------------------------------------------
 
